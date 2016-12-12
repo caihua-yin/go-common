@@ -3,7 +3,6 @@ package api
 import (
 	"encoding/json"
 	"encoding/xml"
-	"errors"
 	"fmt"
 	"log"
 	"net/http"
@@ -35,8 +34,6 @@ func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	var (
 		statusCode string
 		requestID  string
-		routeMatch mux.RouteMatch
-		routeName  string
 	)
 
 	start := time.Now().UTC()
@@ -46,11 +43,6 @@ func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		requestID = h.RequestID(req)
 	} else {
 		requestID = UUIDRequestID(req)
-	}
-
-	matchedRoute := h.Match(req, &routeMatch)
-	if matchedRoute {
-		routeName = routeMatch.Route.GetName()
 	}
 
 	defer func() {
