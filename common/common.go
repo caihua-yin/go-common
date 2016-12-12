@@ -20,3 +20,12 @@ func Startup() {
 	}
 	log.Printf("Using %d CPUs...", runtime.GOMAXPROCS(-1))
 }
+
+// ParseDuration panics if error is not nil
+func ParseDuration(s string) time.Duration {
+	duration, err := time.ParseDuration(s)
+	if err != nil {
+		panic(fmt.Errorf("Unable to parse duration %#v: %s", s, err))
+	}
+	return duration
+}
