@@ -110,7 +110,7 @@ func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 
 // UUIDRequestID generates random UUID for each request
 func UUIDRequestID(req *http.Request) string {
-	return uuid.NewV4()
+	return uuid.NewV4().String()
 }
 
 // JSON sends application/json response
