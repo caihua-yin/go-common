@@ -1,5 +1,4 @@
-package utils
-
+package common
 
 import (
 	"strings"
