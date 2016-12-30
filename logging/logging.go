@@ -1,5 +1,5 @@
-// Package common provides various common methods for each program
-package common
+// Package logging provides structured logging instance
+package logging
 
 import (
 	"github.com/uber-go/zap"
